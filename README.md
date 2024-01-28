@@ -18,7 +18,7 @@
 5. AWS Identity and Access Managemant (IAM)
 
 ### Architecture
-![unavailable ](images/architecture.png)
+![unavailable ](architecture.png)
 
 
 
@@ -52,7 +52,7 @@ Your web app will load in a new browser tab. Congratulations!
 *  Under Code source, replace the code provided with the following:
 ***(use Test_lambda_function.py)***
 
-![unavailable](images\image1.png)
+![unavailable](image1.png)
 
 * Save by going to the file menu and selecting Save to save the changes and hit deploy.
 *  Let's test our new function. Choose the orange Test button to create a test event by selecting Configure test event.
@@ -65,9 +65,9 @@ Your web app will load in a new browser tab. Congratulations!
 ``` 
  
 
-![unavailable](images\image2.png)
+![unavailable](image2.png)
 * You should see a light green box at the top of the page with the following text: Execution result: succeeded. You can choose Details to see the event the function returned.
-![unavailable](images\image3.png)
+![unavailable](image3.png)
 
 
 ## 3. Link a serverless function to the web app (AWS API gateway)
@@ -77,7 +77,7 @@ Your web app will load in a new browser tab. Congratulations!
 * From the Actions dropdown menu, select Create Method.
 * Select POST from the new dropdown that appears, then select the checkmark. Select Lambda Function for the Integration type.
 * Select your appropriate region and your lambda function in the Arn section
-![unavailable](images\image4.png)
+![unavailable](image4.png)
 
 * With the newly created POST method selected, select Enable CORS from the Action dropdown menu.
 * Leave the POST checkbox selected and choose Enable CORS and replace existing CORS headers button.
@@ -86,7 +86,7 @@ Your web app will load in a new browser tab. Congratulations!
 * You can test and validate your api.
 * You should see a response with Code 200.
 
-![unavailable](images\image5.png)
+![unavailable](image5.png)
 
 
 
@@ -98,7 +98,7 @@ Your web app will load in a new browser tab. Congratulations!
 * Leave the rest of the default values unchanged and choose Create table button.
 * In the General information section, show Additional info by selecting the down arrow.
 9. Copy the Amazon Resource Name (ARN). You will need it later in this module.
-![unavailable](images\image6.png)
+![unavailable](image6.png)
 
 #### Table permissions
 Now that we have a table, let's edit our Lambda function to be able to write data to it.   
