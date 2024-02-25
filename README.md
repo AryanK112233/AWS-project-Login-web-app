@@ -2,7 +2,7 @@
 
 ### Aim:
 
-* To create a Simple login web application in the AWS infrastructure . The user's credentials will be captured using an api and stored in a database.
+* To create a Simple login web application in the AWS infrastructure. The user's credentials will be captured using an API and stored in a database.
 
 ### What you will accomplish:
 * Create a web app.
@@ -15,7 +15,7 @@
 2. AWS Lambda
 3. Amazon API Gateway
 4. Amazon DynamoDB
-5. AWS Identity and Access Managemant (IAM)
+5. AWS Identity and Access Management (IAM)
 
 ### Architecture
 ![unavailable ](architecture.png)
@@ -25,11 +25,11 @@
 ## Steps :
 ## 1. Web app with Amplify Console:
 * Create a simple html website and put it in a zipped folder. ***(use test_index.html)***
-* Log into the Amplify console and click on get started.
-* Select Host web app. Now you have various options to injest your html code in the AWS Amplify. I used "Deploy without GiT provider"
-* In the App name field, enter your desred app name .For Environment name, enter dev.
+* Log into the Amplify console and click on Get Started.
+* Select Host web app. Now you have various options to install your HTML code in the AWS Amplify. I used "Deploy without GiT provider"
+* In the App name field, enter your desired app name. For the Environment name, enter dev.
 * Drag and drop your zipped file and choose Save and Deploy.
-* After a few seconds, you should see the message Deployment successfully completed.
+* After a few seconds, you should see the message Deployment completed.
 
 
 
@@ -39,7 +39,7 @@
 
 Your web app will load in a new browser tab. Congratulations!
 
-#### Note: If you have already purchased a domain you can associate it with this website through Domain management and also implement a SSL certificate automatically.  
+#### Note: If you have already purchased a domain you can associate it with this website through Domain management and also implement an SSL certificate automatically.  
 
 
 ## 2. Build a serverless function with Lambda:
@@ -47,8 +47,8 @@ Your web app will load in a new browser tab. Congratulations!
 * In a new browser tab, log in to the AWS Lambda console.
 
 * Choose the orange Create function button.
-* Under Function name, enter desired function name.
-* Select latest Python version from the runtime dropdown and leave the rest of the defaults unchanged. Create function.
+* Under the Function name, enter the desired function name.
+* Select the latest Python version from the runtime dropdown and leave the rest of the defaults unchanged. Create function.
 *  Under Code source, replace the code provided with the following:
 ***(use Test_lambda_function.py)***
 
@@ -56,7 +56,7 @@ Your web app will load in a new browser tab. Congratulations!
 
 * Save by going to the file menu and selecting Save to save the changes and hit deploy.
 *  Let's test our new function. Choose the orange Test button to create a test event by selecting Configure test event.
-* Pass the necessary arguements 
+* Pass the necessary arguments 
 ```json
 {
     "username" : "demo",
@@ -80,34 +80,34 @@ Your web app will load in a new browser tab. Congratulations!
 ![unavailable](image4.png)
 
 * With the newly created POST method selected, select Enable CORS from the Action dropdown menu.
-* Leave the POST checkbox selected and choose Enable CORS and replace existing CORS headers button.
-#### Note : CORS – The CORS browser security feature uses HTTP headers to tell a browser to allow a given web application running at one origin (domain) to access selected resources from a server at a different origin.
+* Leave the POST checkbox selected choose Enable CORS and replace the existing CORS headers button.
+#### Note: CORS – The CORS browser security feature uses HTTP headers to tell a browser to allow a given web application running at one origin (domain) to access selected resources from a server at a different origin.
 
-* You can test and validate your api.
+* You can test and validate your API.
 * You should see a response with Code 200.
 
 ![unavailable](image5.png)
 
 
 
-## 4. Create Database table (Amazon Dynamodb)
+## 4. Create a Database table (Amazon Dynamodb)
 
-* Log in to the Amazon DynamoDB console.Select Create table button.
-* Under Table name, enter desired name.
+* Login to the Amazon DynamoDB console. Select the Create Table button.
+* Under the Table name, enter the desired name.
 * In the Partition key field, enter ID. The partition key is part of the table's primary key.
-* Leave the rest of the default values unchanged and choose Create table button.
-* In the General information section, show Additional info by selecting the down arrow.
+* Leave the rest of the default values unchanged and choose the Create Table button.
+* In the General Information section, show Additional info by selecting the down arrow.
 9. Copy the Amazon Resource Name (ARN). You will need it later in this module.
 ![unavailable](image6.png)
 
 #### Table permissions
 Now that we have a table, let's edit our Lambda function to be able to write data to it.   
 We'll be adding permissions to our function so it can use the DynamoDB service, and we will be using AWS Identity and Access Management (IAM) to do so.
-* In a new browser window, open the AWS Lambda console.Select the function we created earlier. 
-* Select the Configuration tab and select Permissions from the right side menu.
+* In a new browser window, open the AWS Lambda console. Select the function we created earlier. 
+* Select the Configuration tab and select Permissions from the right-side menu.
 * In the Execution role box, under Role name, choose the link. A new browser tab will open.
 * In the Permissions policies box, open the Add permissions dropdown and select Create inline policy.
-* Select the JSON tab.Paste the following policy in the text area, taking care to replace your table's ARN in the Resource field in line 15:
+* Select the JSON tab. Paste the following policy in the text area, taking care to replace your table's ARN in the Resource field in line 15:
 ```json
 {
 	"Version": "2012-10-17",
@@ -135,10 +135,10 @@ This policy will allow our Lambda function to read, edit, or delete items, but r
 #### Modify Lambda function to write o Dynamodb table:
 
 * Replace the code within the lambda function and test the changes ***(use lambda_function.py file)***.
-* Select Test button.
+* Select the Test button.
 You should see an Execution result: succeeded message with a green background.
 * In a new browser tab, open the DynamoDB console. In the left-hand navigation pane, select Tables > Explore items.
-* Select your table , which we created earlier , then select the Items tab on the right.  
+* Select your table, which we created earlier, then select the Items tab on the right.  
 ##### Items matching your test event appear under Items returned. Every time your Lambda function executes, your DynamoDB table will be updated. If the same name is used, only the time stamp will change.
 
 ## 5. Add Interactivity to Your Web App
