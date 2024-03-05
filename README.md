@@ -66,7 +66,9 @@ Your web app will load in a new browser tab. Congratulations!
  
 
 ![unavailable](image2.png)
+
 * You should see a light green box at the top of the page with the following text: Execution result: succeeded. You can choose Details to see the event the function returned.
+  
 ![unavailable](image3.png)
 
 
